@@ -259,9 +259,9 @@ Set.prototype.next = function(x) {
 Set.prototype.prev = function(x) {
     var y = x.prev();
     if(y != null) {
-	    y.splay()
-	    this.root = y;
-	    return this.root;
+        y.splay()
+        this.root = y;
+        return this.root;
     }
     x.splay();
     this.root = x;
@@ -269,10 +269,10 @@ Set.prototype.prev = function(x) {
 };
 
 Set.prototype.printRec = function(node) {
-    if(node != null)
-    {	this.printRec(node.l);
-	    document.write(node.k + ' ');
-	    this.printRec(node.r);
+    if(node != null) {
+        this.printRec(node.l);
+        document.write(node.k + ' ');
+        this.printRec(node.r);
     }
 };
 
