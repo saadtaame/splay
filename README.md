@@ -13,7 +13,7 @@ Creates a new set where the items are compared using the comparison function `co
 
 Inserts a new data item `(key, value)` into the set S if the key does not exist already.
 
-`S.remove(key);` (TODO)
+`S.remove(key);`
 
 Removes the data item whose key is `key` if it exists.
 
@@ -40,7 +40,7 @@ A sorting function for integers.
 var Sort = function(L) {
 	var S = new Set(function(x, y) { return x < y; });
 	for(var i = 0; i < L.length; i++) {
-		S.insert(L[i], null);
+		S.insert(L[i]);
 	}
 	var sorted = [];
 	var x = S.min();
