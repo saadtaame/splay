@@ -13,7 +13,7 @@ Creates a new set where the items are compared using the comparison function `co
 
 Inserts a new data item `(key, value)` into the set S if the key does not exist already.
 
-`S.remove(key);`
+`S.remove(key);` (TODO)
 
 Removes the data item whose key is `key` if it exists.
 
