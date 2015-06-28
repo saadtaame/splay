@@ -7,7 +7,7 @@ Splay-trees are cache-friendly in the sense that data items that are accessed re
 
 `var S = new Set(comparator);`
 
-Creates a new set where the items are compared using the comparison function `comparator`.
+Creates a new set where the items are compared using the comparison function `comparator`. The comparator takes two arguments and returns `true` if the first argument is less than the second and `false` elsewise.
 
 `S.insert(key, value);`
 
