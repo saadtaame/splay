@@ -149,6 +149,87 @@ Set.prototype.insert = function(x, y) {
 	}
 };
 
+Set.prototype.removeBST = function(x) {
+	if(this.isEmpty()) return;
+	else {
+		var cur = this.root;
+		var curP = null;
+		var found = false;
+		
+		while(cur != null) {
+			if(x == cur.k) {
+				found = true;
+				break;
+			}
+			curP = cur;
+			if(this.cmp(x, cur.k)) cur = cur.l;
+			else cur = cur.r;
+		}
+		
+		if(found == false) return curP;
+		
+		if(cur.l == null) {
+			if(cur.r == null) {
+				if(curP != null) {
+					if(cur == curP.l) curP.l = null;
+					else curP.r = null;
+				}
+				
+				cur.p = null;
+				return curP;
+			}
+			else {
+				if(curP != null) {
+					if(cur == curP.l) curP.l = cur.r;
+					else curP.r = cur.r;
+				}
+				cur.r.p = curP;
+				if(curP != null) return curP;
+				else return cur.r;
+			}
+		}
+		else if(cur.r == null) {
+			if(cur.l == null) {
+				if(curP != null) {
+					if(cur == curP.l) curP.l = null;
+					else curP.r = null;
+				}
+
+				cur.p = null;
+				return curP;
+			}
+			else {
+				if(curP != null) {
+					if(cur == curP.l) curP.l = cur.l;
+					else curP.r = cur.l;
+				}
+				cur.l.p = curP;
+				if(curP != null) return curP;
+				else return cur.l;
+			}
+		}
+		else {
+			var nxt = cur.next();
+			cur.k = nxt.k;
+			cur.v = nxt.v;
+			if(nxt == nxt.p.l) nxt.p.l = nxt.r;
+			else nxt.p.r = nxt.r;
+			
+			if(nxt.r) nxt.r.p = nxt.p;
+			return nxt.p;
+		}
+	}
+};
+
+Set.prototype.remove = function(x) {
+	var x = this.removeBST(x);
+	if(x != null) {
+		x.splay();
+		this.root = x;
+	}
+	else this.root = null;
+};
+
 Set.prototype.min = function() {
 	var x = this.root.min();
 	x.splay();
