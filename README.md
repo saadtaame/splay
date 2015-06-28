@@ -5,31 +5,31 @@ Splay-trees are cache-friendly in the sense that data items that are accessed re
 
 # API
 
-`var S = new Set(comparator);`
+* `var S = new Set(comparator);`
 
 Creates a new set where the items are compared using the comparison function `comparator`. The comparator takes two arguments and returns `true` if the first argument is less than the second and `false` elsewise.
 
-`S.insert(key, value);`
+* `S.insert(key, value);`
 
 Inserts a new data item `(key, value)` into the set S if the key does not exist already.
 
-`S.remove(key);`
+* `S.remove(key);`
 
 Removes the data item whose key is `key` if it exists.
 
-`S.min();`
+* `S.min();`
 
 Returns the node with the smallest key in the set.
 
-`S.max();`
+* `S.max();`
 
 Returns the node with the largest key in the set.
 
-`S.prev(node);`
+* `S.prev(node);`
 
 Returns the node whose key is the largest key that is less than `node`'s key.
 
-`S.next(node);`
+* `S.next(node);`
 
 Returns the node whose key is the smallest key that is less than `node`'s key.
 
